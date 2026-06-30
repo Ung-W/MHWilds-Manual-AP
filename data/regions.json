@@ -1,0 +1,13 @@
+{
+  "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.regions.schema.json",
+  "1* Quests": {"requires": "|Quest Rank Star: 1|"},
+  "2* Quests": {"requires": "|Quest Rank Star: 2| AND (|@Armors: 10| OR |@Cond_Armors: 2|)"},
+  "3* Quests": {"requires": "|Quest Rank Star: 3| AND (|@Armors: 15| OR |@Cond_Armors: 3|)"},
+  "4* Quests": {"requires": "|Quest Rank Star: 4| AND (|@Armors: 20| OR |@Cond_Armors: 4|)"},
+  "5* Quests": {"requires": "|Quest Rank Star: 5| AND (|@Armors: 25| OR |@Cond_Armors: 5|)"},
+  "6* Quests": {"requires": "|Quest Rank Star: 6| AND (|@Armors: 30| OR |@Cond_Armors: 6|)"},
+  "7* Quests": {"requires": "|Quest Rank Star: 7| AND (|@Armors: 35| OR |@Cond_Armors: 7|)"},
+  "8* Quests": {"requires": "|Quest Rank Star: 7| AND (|@Armors: 35| OR |@Cond_Armors: 8|)"},
+  "9* Quests": {"requires": "|Quest Rank Star: 7| AND (|@Armors: 35| OR |@Cond_Armors: 8|)"},
+  "Victory": {"requires": "|Hunt Complete !|"}
+}
