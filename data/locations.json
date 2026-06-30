@@ -124,7 +124,7 @@
     {"name": "The Sea-Born Lord - Reward 2", "category": ["6* Quests", "Large Monster"], "region": "6* Quests", "requires": "|Scarlet Forest Access: 2|", "sort-key": "14"},
     {"name": "The Chains of Life - Reward 1", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Windward Plains Access: 2|", "sort-key": "1"},
     {"name": "The Chains of Life - Reward 2", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Windward Plains Access: 2|", "sort-key": "2"},
-    {"name": "Incomplete Creation - Reward 1", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "place_item": ["Omega Traces"], "requires": "|Iceshard Cliffs Access: 2|", "sort-key": "3"},
+    {"name": "Incomplete Creation - Reward 1", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "place_item": ["Omega Permit"], "requires": "|Iceshard Cliffs Access: 2| AND |Omega Traces: 1|", "sort-key": "3"},
     {"name": "Incomplete Creation - Reward 2", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Iceshard Cliffs Access: 2|", "sort-key": "4"},
     {"name": "Zoh Shia Investigation - Reward 1", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Zoh Shia Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "1"},
     {"name": "Zoh Shia Investigation - Reward 2", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Zoh Shia Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "2"},
