@@ -227,10 +227,11 @@ def before_create_items_filler(item_pool: list, world: World, multiworld: MultiW
             "random": 4
         }]
         
-        starting_items += [{
-            "items": ["Windward Plains Access", "Scarlet Forest Access", "Oilwell Basin Access", "Iceshard Cliffs Access", "Ruins of Wyveria Access"],
-            "random": 5
-        }]
+        for region in ["Windward Plains Access", "Scarlet Forest Access", "Oilwell Basin Access", "Iceshard Cliffs Access", "Ruins of Wyveria Access"]:
+            starting_items += [{
+                "items": [f"{region}"],
+                "random": 1
+            }]
         
         starting_items += [{
             "items": ["Windward Plains Access", "Scarlet Forest Access", "Oilwell Basin Access", "Iceshard Cliffs Access"],
