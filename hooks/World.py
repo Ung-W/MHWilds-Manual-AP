@@ -8,8 +8,6 @@ from ..Items import ManualItem
 from ..Locations import ManualLocation
 from .Options import Victory
 
-import random
-
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
 #
@@ -345,7 +343,7 @@ def after_create_items(item_pool: list, world: World, multiworld: MultiWorld, pl
     for trap_name in trap_to_replace:
         for i in item_pool.copy():
             if i.name == trap_name:
-                replacement_trap = random.choice(active_traps_list)
+                replacement_trap = world.random.choice(active_traps_list)
                 item_pool.remove(i)
                 item_pool.append(world.create_item(replacement_trap))
     
