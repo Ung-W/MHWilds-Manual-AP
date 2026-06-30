@@ -101,20 +101,13 @@ class MainWeapon(Choice):
     option_Bow = 13
     default = 0 
     
-class ExtraWeapons(Choice):
+class ExtraWeapons(Range):
     """
         Number of extra weapons to include in the pool.
     """
     display_name = "Extra Weapons"
-    option_0 = 0
-    option_1 = 1
-    option_2 = 2
-    option_3 = 3
-    option_4 = 4
-    option_5 = 5
-    option_6 = 6
-    option_7 = 7
-    option_8 = 8
+    range_start = 0
+    range_end = 8
     default = 0
     
 class MantleToggle(Toggle):
