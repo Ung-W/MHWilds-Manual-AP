@@ -46,12 +46,19 @@ class LRSkip(Toggle):
     default = False
 
 class CondenseWeapons(Toggle):
-    """Condense all weapon trees into a single one"""
+    """
+        Condense all weapon trees into a single one.
+        => Have 8 progressive overall weapons instead of having 8 Progressive for each weapon types enabled
+        => If you use this, you can skip weapon_option and main_weapon
+    """
     display_name = "Overall Weapon Tree"
     default = False
     
 class CondenseArmors(Toggle):
-    """Condense all armor trees into a single one"""
+    """
+        Condense all armor trees into a single one.
+        => Have 8 progressive overall armor instead of having 40 items : 8 Progressive of each piece of armor
+    """
     display_name = "Overall Armor Tree"
     default = False
     
@@ -65,21 +72,7 @@ class weaponOption(OptionList):
         Toggle weapon types to be included in the pool.
         won't do anything if condense_weapons is enabled.
         
-        This does not guarantee that you'll always have 8 upgrades of one weapon.
-        Here are the number of locations guaranteed in this world available for useful items.
-        Total Locations : 130
-        - (8 weapons upgrades for max)
-          Gogmazios goal + Small Monster Quests + No LR Skip = 130 locations - 1 Victory location - 4 Endgame Unlocks - 8 Quest Star = 117 locations
-            without Small Monster Quests : - 28 locations (14 Quests with 2 reward)
-            without armors condesed : - 40 locations for Armor Upgrades
-            with armors condesed : - 8 locations for Armor Upgrades
-            with mantles : - 5 locations for Mantles (random because mantles are also useful)
-        - (4 weapons upgrades for max)
-          Gogmazios goal + Small Monster Quests + LR Skip = 82 locations - 1 Victory location - 4 Endgame Unlocks - 4 Quest Star = 73 locations
-            without Small Monster Quests : - 14 locations (7 Quests with 2 reward)
-            without armors condesed : - 25 locations for Armor Upgrades
-            with armors condesed : - 5 locations for Armor Upgrades
-            with mantles : - 5 locations for Mantles (random because mantles are also useful)
+        This does not guarantee that you'll always have 8 upgrades of one weapon. (especially with low filler multiworlds)
             
         possible values are : "Greatsword", "Longsword", "Sword and Shield", "Dual Blades", "Hammer", "Hunting Horn", "Lance", "Gunlance", "Switch Axe", "Charge Blade", "Insect Glaive", "Light Bowgun", "Heavy Bowgun", "Bow"
     """
