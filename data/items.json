@@ -3,6 +3,7 @@
   "data": [
     {"name": "Hunt Complete !", "category": ["Victory"], "progression_skip_balancing": true},
     {"name": "Quest Rank Star", "category": ["Quest Unlock"], "count": 7, "progression": true},
+    {"name": "Arkveld Permit", "category": ["Quest Unlock"], "progression": true},
     {"name": "Zoh Shia Permit", "category": ["Quest Unlock"], "progression": true},
     {"name": "Omega Traces", "category": ["Quest Unlock"], "progression": true},
     {"name": "Omega Permit", "category": ["Quest Unlock"], "progression": true},

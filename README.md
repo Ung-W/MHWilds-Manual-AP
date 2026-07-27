@@ -12,8 +12,8 @@ Depending on your goal :
 ### Progression
 - Quest Rank Star : unlocks hunt of the corresponding Star Difficulty (7 Total)
 - Region Access : Allows hunts that take place in the corresponding region : 1 for LR, 2 for HR
-- Boss permits : Allows you to hunt the corresponding "goal" Monster (except Arkveld)
-  - Note that regardless of your goal, you need the permit so for exemple : Gogmazios goal, you still need the Zoh Shia Permit to hunt Zoh Shia)
+- Boss permits : Allows you to hunt the corresponding "goal" Monster
+  - Note that regardless of your goal, you need the permit so for exemple : Gogmazios goal, you still need the Zoh Shia Permit to hunt Zoh Shia
   - The Omega Permit is always on the 1st reward of the Nerscylla (clone) hunt, this hunt needs the "Omega Traces" item and 7 Quest Star to access
 - Progressive Armor Upgrades :
   - Normal : Have each part of your armor upgradeable (40 items total - 8 each), you need 5*Stars to access that difficulty
