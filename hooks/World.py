@@ -181,7 +181,7 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
             item_name = f"Progressive {main_weapon}"
         else:
             item_name = "Main Weapon wrongly defined in yaml, not worth fussing over it, free pass for a weapon rarity"
-        multiworld.early_items[player][item_name] = 2
+        multiworld.early_items[player][item_name] = 1
         for i in range(0, 2):
             item_pool.append(world.create_item(item_name))
             
