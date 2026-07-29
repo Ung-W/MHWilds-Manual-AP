@@ -62,22 +62,35 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     
     if victory == Victory.option_arkveld:
         locationNamesToRemove = [
-            "Zoh Shia Investigation - Reward 1", "Zoh Shia Investigation - Reward 2", 
-            "Incomplete Creation - Reward 1", "Incomplete Creation - Reward 2",
-            "Planetes Protocol - Reward 1", "Planetes Protocol - Reward 2",
-            "Specter of Their Sins - Reward 1", "Specter of Their Sins - Reward 2"
+            "The Chains of Life - Reward 1", "The Chains of Life - Reward 2",
+            "Zoh Shia Investigation - Quest Completion", "Zoh Shia Investigation - Reward 1", "Zoh Shia Investigation - Reward 2", 
+            "Incomplete Creation - Quest Completion", "Incomplete Creation - Reward 1", "Incomplete Creation - Reward 2",
+            "Planetes Protocol - Quest Completion", "Planetes Protocol - Reward 1", "Planetes Protocol - Reward 2",
+            "Specter of Their Sins - Quest Completion"
             ]
     elif victory == Victory.option_zoh_shia:
         locationNamesToRemove = [
-            "Incomplete Creation - Reward 1", "Incomplete Creation - Reward 2",
-            "Planetes Protocol - Reward 1", "Planetes Protocol - Reward 2",
-            "Specter of Their Sins - Reward 1", "Specter of Their Sins - Reward 2"
+            "The Chains of Life - Quest Completion",
+            "Zoh Shia Investigation - Reward 1", "Zoh Shia Investigation - Reward 2", 
+            "Incomplete Creation - Quest Completion","Incomplete Creation - Reward 1", "Incomplete Creation - Reward 2",
+            "Planetes Protocol - Quest Completion", "Planetes Protocol - Reward 1", "Planetes Protocol - Reward 2",
+            "Specter of Their Sins - Quest Completion"
             ]
         
     elif victory == Victory.option_omega:
         locationNamesToRemove = [
-            "Specter of Their Sins - Reward 1", "Specter of Their Sins - Reward 2"
+            "The Chains of Life - Quest Completion",
+            "Zoh Shia Investigation - Quest Completion",
+            "Planetes Protocol - Reward 1", "Planetes Protocol - Reward 2",
+            "Specter of Their Sins - Quest Completion"
             ]
+        
+    elif victory == Victory.option_gogmazios:
+        locationNamesToRemove = [
+            "The Chains of Life - Quest Completion",
+            "Zoh Shia Investigation - Quest Completion",
+            "Planetes Protocol - Quest Completion"
+        ]
     
     if lrskip:
         regions_to_remove = [
@@ -118,19 +131,19 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
     
     victory_item = next(i for i in item_pool if i.name == "Hunt Complete !")
     if victory == Victory.option_arkveld:
-        victory_location_name = "The Chains of Life - Reward 1"
+        victory_location_name = "The Chains of Life - Quest Completion"
         items_to_remove += ["Zoh Shia Permit", "Omega Traces", "Omega Permit", "Gogmazios Permit"]
         
     elif victory == Victory.option_zoh_shia:
-        victory_location_name = "Zoh Shia Investigation - Reward 1"
+        victory_location_name = "Zoh Shia Investigation - Quest Completion"
         items_to_remove += ["Omega Traces", "Omega Permit", "Gogmazios Permit"]
         
     elif victory == Victory.option_omega:
-        victory_location_name = "Planetes Protocol - Reward 1"
+        victory_location_name = "Planetes Protocol - Quest Completion"
         items_to_remove += ["Gogmazios Permit"]
         
     elif victory == Victory.option_gogmazios:
-        victory_location_name = "Specter of Their Sins - Reward 1"
+        victory_location_name = "Specter of Their Sins - Quest Completion"
     
     full_weapon_list = ["Greatsword", "Longsword", "Sword and Shield", "Dual Blades", "Hammer", "Hunting Horn", "Lance", "Gunlance", "Switch Axe", "Charge Blade", "Insect Glaive", "Light Bowgun", "Heavy Bowgun", "Bow"]
     weapon_list = world.options.weapon_option
@@ -165,11 +178,12 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
     
     if not cond_weapons_val :
         if main_weapon in weapon_list:
-            for i in range(0, 2):
-                item_pool.append(world.create_item(f"Progressive {main_weapon}"))
+            item_name = f"Progressive {main_weapon}"
         else:
-            for i in range(0, 2):
-                item_pool.append(world.create_item("Main Weapon wrongly defined in yaml, not worth fussing over it, free pass for a weapon rarity"))
+            item_name = "Main Weapon wrongly defined in yaml, not worth fussing over it, free pass for a weapon rarity"
+        multiworld.early_items[player][item_name] = 2
+        for i in range(0, 2):
+            item_pool.append(world.create_item(item_name))
             
     extra_weapons_val = world.options.extra_weapons
     if cond_weapons_val:

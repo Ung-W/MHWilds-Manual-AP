@@ -122,15 +122,18 @@
     {"name": "1000 Shimmering Swords - Reward 2", "category": ["6* Quests", "Large Monster"], "region": "6* Quests", "requires": "|Windward Plains Access: 2|", "sort-key": "12"},
     {"name": "The Sea-Born Lord - Reward 1", "category": ["6* Quests", "Large Monster"], "region": "6* Quests", "requires": "|Scarlet Forest Access: 2|", "sort-key": "13"},
     {"name": "The Sea-Born Lord - Reward 2", "category": ["6* Quests", "Large Monster"], "region": "6* Quests", "requires": "|Scarlet Forest Access: 2|", "sort-key": "14"},
-    {"name": "The Chains of Life - Reward 1", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Windward Plains Access: 2| AND |Arkveld Permit: 1|", "sort-key": "1"},
-    {"name": "The Chains of Life - Reward 2", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Windward Plains Access: 2| AND |Arkveld Permit: 1|", "sort-key": "2"},
-    {"name": "Incomplete Creation - Reward 1", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "place_item": ["Omega Permit"], "requires": "|Iceshard Cliffs Access: 2| AND |Omega Traces: 1|", "sort-key": "3"},
-    {"name": "Incomplete Creation - Reward 2", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Iceshard Cliffs Access: 2| AND |Omega Traces: 1|", "sort-key": "4"},
-    {"name": "Zoh Shia Investigation - Reward 1", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Zoh Shia Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "1"},
-    {"name": "Zoh Shia Investigation - Reward 2", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Zoh Shia Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "2"},
-    {"name": "Planetes Protocol - Reward 1", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Omega Permit: 1| AND |Iceshard Cliffs Access: 2|", "sort-key": "3"},
-    {"name": "Planetes Protocol - Reward 2", "category": ["8* Quests", "Large Monster"],"region": "8* Quests", "requires": "|Omega Permit: 1| AND |Iceshard Cliffs Access: 2|", "sort-key": "4"},
-    {"name": "Specter of Their Sins - Reward 1", "category": ["9* Quests", "Large Monster"], "region": "9* Quests", "requires": "|Gogmazios Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "1"},
-    {"name": "Specter of Their Sins - Reward 2", "category": ["9* Quests", "Large Monster"],"region": "9* Quests", "requires": "|Gogmazios Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key":"2"}
+    {"name": "The Chains of Life - Quest Completion", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Windward Plains Access: 2| AND |Arkveld Permit: 1|", "sort-key": "1"},
+    {"name": "The Chains of Life - Reward 1", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Windward Plains Access: 2| AND |Arkveld Permit: 1|", "sort-key": "2"},
+    {"name": "The Chains of Life - Reward 2", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Windward Plains Access: 2| AND |Arkveld Permit: 1|", "sort-key": "3"},
+    {"name": "Incomplete Creation - Quest Completion", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "place_item": ["Omega Permit"], "requires": "|Iceshard Cliffs Access: 2| AND |Omega Traces: 1|", "sort-key": "3"},
+    {"name": "Incomplete Creation - Reward 1", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Iceshard Cliffs Access: 2| AND |Omega Permit: 1|", "sort-key": "4"},
+    {"name": "Incomplete Creation - Reward 2", "category": ["7* Quests", "Large Monster"], "region": "7* Quests", "requires": "|Iceshard Cliffs Access: 2| AND |Omega Permit: 1|", "sort-key": "5"},
+    {"name": "Zoh Shia Investigation - Quest Completion", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Zoh Shia Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "1"},
+    {"name": "Zoh Shia Investigation - Reward 1", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Zoh Shia Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "2"},
+    {"name": "Zoh Shia Investigation - Reward 2", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Zoh Shia Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "3"},
+    {"name": "Planetes Protocol - Quest Completion", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Omega Permit: 1| AND |Iceshard Cliffs Access: 2|", "sort-key": "4"},
+    {"name": "Planetes Protocol - Reward 1", "category": ["8* Quests", "Large Monster"], "region": "8* Quests", "requires": "|Omega Permit: 1| AND |Iceshard Cliffs Access: 2|", "sort-key": "5"},
+    {"name": "Planetes Protocol - Reward 2", "category": ["8* Quests", "Large Monster"],"region": "8* Quests", "requires": "|Omega Permit: 1| AND |Iceshard Cliffs Access: 2|", "sort-key": "6"},
+    {"name": "Specter of Their Sins - Quest Completion", "category": ["9* Quests", "Large Monster"], "region": "9* Quests", "requires": "|Gogmazios Permit: 1| AND |Ruins of Wyveria Access: 2|", "sort-key": "1"}
   ]
 }
