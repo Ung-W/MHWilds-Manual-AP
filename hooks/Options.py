@@ -81,7 +81,7 @@ class weaponOption(OptionList):
 
 class MainWeapon(Choice):
     """
-        Choose your main weapon, this will add 2 more copy of it in the pool.
+        Choose your main weapon, this will add 2 more copy of it in the pool, and make these copies an "early item".
         Won't do anything if condense_weapons is enabled.
     """
     display_name = "Main Weapon"
