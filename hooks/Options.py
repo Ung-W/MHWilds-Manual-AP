@@ -1,5 +1,5 @@
 # Object classes from AP that represent different types of options that you can create
-from Options import Option, FreeText, NumericOption, Toggle, DefaultOnToggle, Choice, TextChoice, Range, NamedRange, OptionGroup, PerGameCommonOptions, OptionList
+from Options import Option, FreeText, NumericOption, Toggle, DefaultOnToggle, Choice, TextChoice, Range, NamedRange, OptionGroup, PerGameCommonOptions, OptionSet
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import is_option_enabled, get_option_value
 from typing import Type, Any
@@ -67,7 +67,7 @@ class SmallMonsterQuests(Toggle):
     display_name = "Small Monster Quests"
     default = False
     
-class weaponOption(OptionList):
+class weaponOption(OptionSet):
     """
         Toggle weapon types to be included in the pool.
         won't do anything if condense_weapons is enabled.
@@ -77,6 +77,7 @@ class weaponOption(OptionList):
         possible values are : "Greatsword", "Longsword", "Sword and Shield", "Dual Blades", "Hammer", "Hunting Horn", "Lance", "Gunlance", "Switch Axe", "Charge Blade", "Insect Glaive", "Light Bowgun", "Heavy Bowgun", "Bow"
     """
     display_name = "Weapon Types"
+    valid_keys = ["Greatsword", "Longsword", "Sword and Shield", "Dual Blades", "Hammer", "Hunting Horn", "Lance", "Gunlance", "Switch Axe", "Charge Blade", "Insect Glaive", "Light Bowgun", "Heavy Bowgun", "Bow"]
     default = ["Greatsword", "Longsword", "Sword and Shield", "Dual Blades", "Hammer", "Hunting Horn", "Lance", "Gunlance", "Switch Axe", "Charge Blade", "Insect Glaive", "Light Bowgun", "Heavy Bowgun", "Bow"]
 
 class MainWeapon(Choice):
@@ -117,7 +118,7 @@ class MantleToggle(Toggle):
     display_name = "Mantles"
     default = True
     
-class ActiveTraps(OptionList):
+class ActiveTraps(OptionSet):
     """
         Toggle traps to be included in the pool, remove the ones you don't want included in the pool.
         possible values are :
@@ -129,6 +130,7 @@ class ActiveTraps(OptionList):
         - "So Hungry..." : Pull up the grill and make a meal or grill meat
     """
     display_name = "Traps"
+    valid_keys = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry..."]
     default = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry..."]
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
