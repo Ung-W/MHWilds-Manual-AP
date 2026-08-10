@@ -146,7 +146,8 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
         victory_location_name = "Specter of Their Sins - Quest Completion"
     
     full_weapon_list = ["Greatsword", "Longsword", "Sword and Shield", "Dual Blades", "Hammer", "Hunting Horn", "Lance", "Gunlance", "Switch Axe", "Charge Blade", "Insect Glaive", "Light Bowgun", "Heavy Bowgun", "Bow"]
-    weapon_list = world.options.weapon_option
+    weapon_list = list(world.options.weapon_option)
+    weapon_list.sort()
     
     cond_weapons_val = world.options.condense_weapons
     cond_armor_val = world.options.condense_armors        
@@ -230,7 +231,8 @@ def before_create_items_filler(item_pool: list, world: World, multiworld: MultiW
     lr_skip_val = world.options.lr_skip
     cond_weapons_val = world.options.condense_weapons
     cond_armor_val = world.options.condense_armors
-    weapon_list = world.options.weapon_option
+    weapon_list = list(world.options.weapon_option)
+    weapon_list.sort()
 
     # if they put in something other than a number, make it a number and the default of 0
     if lr_skip_val:
@@ -341,7 +343,8 @@ def before_create_items_filler(item_pool: list, world: World, multiworld: MultiW
 def after_create_items(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
     trap_to_replace = []
     
-    active_traps = world.options.active_traps
+    active_traps = list(world.options.active_traps)
+    active_traps.sort()
     full_trap_list = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry...", "Won't raise an exception for this but check your enabled traps in yaml"]
     active_traps_list = []
     
