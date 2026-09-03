@@ -132,6 +132,20 @@ class ActiveTraps(OptionSet):
     display_name = "Traps"
     valid_keys = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry..."]
     default = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry..."]
+    
+class RewardOptions(Choice):
+    """
+        Choose the way Quest checks are unlocked :
+            - Quest Reward : gives a random amount of reward per quests (between 2 and 6)
+            - Fixed : Gives 4 reward per quests
+            - Refights : Gives 2 checks per quests at start
+                find "X* Monster Report" to unlock 2 other checks from all quests in this Star rank
+    """
+    display_name = "Reward Options"
+    option_quest_reward = 0
+    option_fixed = 1
+    option_refights = 2
+    default = 1
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict[str, Type[Option[Any]]]) -> dict[str, Type[Option[Any]]]:
@@ -145,6 +159,7 @@ def before_options_defined(options: dict[str, Type[Option[Any]]]) -> dict[str, T
     options["main_weapon"] = MainWeapon
     options["extra_weapons"] = ExtraWeapons
     options["active_traps"] = ActiveTraps
+    options["reward_options"] = RewardOptions
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
@@ -162,7 +177,7 @@ def after_options_defined(options: Type[PerGameCommonOptions]):
 # Use this Hook if you want to add your Option to an Option group (existing or not)
 def before_option_groups_created(groups: dict[str, list[Type[Option[Any]]]]) -> dict[str, list[Type[Option[Any]]]]:
     # Uses the format groups['GroupName'] = [TotalCharactersToWinWith]
-    groups['Progression'] = [Victory, LRSkip, SmallMonsterQuests]
+    groups['Progression'] = [Victory, RewardOptions, LRSkip, SmallMonsterQuests]
     groups['Arsenal'] = [CondenseArmors, CondenseWeapons, weaponOption, MainWeapon, ExtraWeapons, MantleToggle]
     groups['Misc'] = [ActiveTraps]
     return groups

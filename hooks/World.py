@@ -6,7 +6,7 @@ from BaseClasses import MultiWorld, CollectionState, Item
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem
 from ..Locations import ManualLocation
-from .Options import Victory
+from .Options import Victory, RewardOptions
 
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
@@ -52,65 +52,154 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
 # Called after regions and locations are created, in case you want to see or modify that information. Victory location is included.
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     # Use this hook to remove locations from the world
-    locationNamesToRemove: list[str] = [] # List of location names
-    regions_to_remove: list[str] = [] # List of region names
+    locationNamesToRemove: list[str] = []
+    regions_to_remove: list[str] = []
 
     # Add your code here to calculate which locations to remove
     victory = get_option_value(multiworld, player, "victory_condition")
     lrskip = get_option_value(multiworld, player, "lr_skip") or False
     small = get_option_value(multiworld, player, "small_monster_toggle") or False
-    
+    reward = get_option_value(multiworld, player, "reward_options")
+    print(f"Victory: {victory}, LR Skip: {lrskip}, Small Monster: {small}, Reward: {reward}")
+
     if victory == Victory.option_arkveld:
         locationNamesToRemove = [
-            "The Chains of Life - Reward 1", "The Chains of Life - Reward 2",
-            "Zoh Shia Investigation - Quest Completion", "Zoh Shia Investigation - Reward 1", "Zoh Shia Investigation - Reward 2", 
-            "Incomplete Creation - Quest Completion", "Incomplete Creation - Reward 1", "Incomplete Creation - Reward 2",
-            "Planetes Protocol - Quest Completion", "Planetes Protocol - Reward 1", "Planetes Protocol - Reward 2",
+            "The Chains of Life - Reward",
+            "Zoh Shia Investigation - Quest Completion",
+            "Zoh Shia Investigation - Reward",
+            "Incomplete Creation - Quest Completion",
+            "Incomplete Creation - Reward",
+            "Planetes Protocol - Quest Completion",
+            "Planetes Protocol - Reward",
             "Specter of Their Sins - Quest Completion"
-            ]
+        ]
     elif victory == Victory.option_zoh_shia:
         locationNamesToRemove = [
             "The Chains of Life - Quest Completion",
-            "Zoh Shia Investigation - Reward 1", "Zoh Shia Investigation - Reward 2", 
-            "Incomplete Creation - Quest Completion","Incomplete Creation - Reward 1", "Incomplete Creation - Reward 2",
-            "Planetes Protocol - Quest Completion", "Planetes Protocol - Reward 1", "Planetes Protocol - Reward 2",
+            "Zoh Shia Investigation - Reward",
+            "Incomplete Creation - Quest Completion",
+            "Incomplete Creation - Reward",
+            "Planetes Protocol - Quest Completion",
+            "Planetes Protocol - Reward",
             "Specter of Their Sins - Quest Completion"
-            ]
-        
+        ]
     elif victory == Victory.option_omega:
         locationNamesToRemove = [
             "The Chains of Life - Quest Completion",
             "Zoh Shia Investigation - Quest Completion",
-            "Planetes Protocol - Reward 1", "Planetes Protocol - Reward 2",
+            "Planetes Protocol - Reward",
             "Specter of Their Sins - Quest Completion"
-            ]
-        
+        ]
     elif victory == Victory.option_gogmazios:
         locationNamesToRemove = [
             "The Chains of Life - Quest Completion",
             "Zoh Shia Investigation - Quest Completion",
             "Planetes Protocol - Quest Completion"
         ]
-    
+
     if lrskip:
         regions_to_remove = [
-                "1* Quests", "2* Quests", "3* Quests"
-            ]
-        
+            "1* Quests", "2* Quests", "3* Quests"
+        ]
+
     if not small:
         for location in world.location_name_to_location.items():
             if "Small Monster" in location[1]["category"]:
-                locationNamesToRemove += [location[1]["name"]]
+                locationNamesToRemove.append(location[1]["name"])
+                
+    if reward == RewardOptions.option_quest_reward:
+        questNames: list[str] = [
+            "Beware the Chatacabra",
+            "Fire Starter",
+            "Every Rose...",
+            "Tussle in Pink",
+            "Sand Sea Surges",
+            "Forest Outlaw",
+            "Buggin' in the Desert",
+            "The Desert is Demanding",
+            "Buggin' in the Scarlet Forest",
+            "A Sharp Sort",
+            "Veiled by the Tide",
+            "Oilwell Basin Blast",
+            "Sultan of the Sand",
+            "Dance of Shadows",
+            "Fleet Flight",
+            "Scorching Simian",
+            "March of the Kranodath",
+            "Buggin' in the Cliffs",
+            "A Futile Fight",
+            "The Pursued and the Pursuer",
+            "The Desert Knows Not the Sea",
+            "Flower of Eternal Rest",
+            "Flippant Flatulence",
+            "All Hail the Queen",
+            "Profusio of Poison",
+            "Mysterious Poison",
+            "Aberrant Atrocity",
+            "Fleeting Victory",
+            "The Nerscylla's Hunting Grounds",
+            "A Vow to Remain",
+            "Time to Exorcise",
+            "Vespoid Capriccio",
+            "A Sharp Squad",
+            "Talk About Hard Headed !",
+            "Dream Eaters",
+            "Doshaguma Hunt",
+            "King of the Skies",
+            "Annihilating Anguish",
+            "Armor Like a Mountain",
+            "Blangonga Excursion",
+            "Opposition",
+            "Battle with the White Doshaguma",
+            "The King's Triumphant Return",
+            "White Wails",
+            "Guardian Fulgur Anjanath Hunt",
+            "Bubbling Crimson Flowers",
+            "Small White Feathers",
+            "When Frost Falls",
+            "One Thick Veil !",
+            "When the Dust Settles...",
+            "Sinister Sneer",
+            "Misty Depths",
+            "1000 Shimmering Swords",
+            "The Sea-Born Lord",
+            "The Chains of Life",
+            "Incomplete Creation",
+            "Zoh Shia Investigation",
+            "Planetes Protocol",
+            "Specter of Their Sins"
+        ]
+        
+        questRewards: dict[str, int] = {
+            quest: world.random.randint(2, 6)
+            for quest in questNames
+        }
+        
+        print(f"Quest Rewards set : {questRewards}")
 
     for region in multiworld.regions:
+        print(f"Checking region {region.name} for player {region.player}")
         if region.player == player:
             if region.name in regions_to_remove:
                 for location in list(region.locations):
-                        region.locations.remove(location)
-                    
-            for location in list(region.locations):
-                if location.name in locationNamesToRemove:
                     region.locations.remove(location)
+
+            for location in list(region.locations):
+                if any(location.name.startswith(prefix) for prefix in locationNamesToRemove):
+                    region.locations.remove(location)
+                    continue
+                if reward == RewardOptions.option_quest_reward:
+                    for quest, reward_count in questRewards.items():
+                        if location.name.startswith(f"{quest} - Reward "):
+                            reward_number = int(location.name.rsplit(" ", 1)[-1])
+
+                            if reward_number > reward_count:
+                                region.locations.remove(location)
+                                
+                if reward == RewardOptions.option_fixed:
+                    if (location.name.endswith("Reward 5") 
+                    or location.name.endswith("Reward 6")):
+                        region.locations.remove(location)
 
 # This hook allows you to access the item names & counts before the items are created. Use this to increase/decrease the amount of a specific item in the pool
 # Valid item_config key/values:
@@ -228,11 +317,20 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
 def before_create_items_filler(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
     starting_items = []
     
+    reward = world.options.reward_options or 1
     lr_skip_val = world.options.lr_skip
     cond_weapons_val = world.options.condense_weapons
     cond_armor_val = world.options.condense_armors
     weapon_list = list(world.options.weapon_option)
     weapon_list.sort()
+
+    if reward != RewardOptions.option_refights:
+        refight_item = ["1* Monster Report", "2* Monster Report", "3* Monster Report", "4* Monster Report", "5* Monster Report", "6* Monster Report", "7* Monster Report", "8* Monster Report"]
+        for item in refight_item:
+            starting_items += [{
+                "items": [f"{item}"],
+                "random": 2
+            }]
 
     # if they put in something other than a number, make it a number and the default of 0
     if lr_skip_val:
