@@ -188,7 +188,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 if any(location.name.startswith(prefix) for prefix in locationNamesToRemove):
                     region.locations.remove(location)
                     continue
-                if reward == RewardOptions.option_quest_reward:
+                if reward == RewardOptions.option_quest_reward and not hasattr(world.multiworld,"generation_is_fake"):
                     for quest, reward_count in questRewards.items():
                         if location.name.startswith(f"{quest} - Reward "):
                             reward_number = int(location.name.rsplit(" ", 1)[-1])
