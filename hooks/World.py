@@ -296,10 +296,10 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
         
     seikret_val = get_option_value(multiworld, player, "seikret_moves")
     if seikret_val == SeikretMoves.option_off:
-        for seikret in ["Seikret Maneuvers", "Seikret Jump Attacks", "Seikret Recovery", "Seikret Call"]:
+        for seikret in ["Seikret Maneuvers", "Seikret Jump Attacks", "Seikret Recovery", "Seikret Transport"]:
             items_to_remove += [seikret]
     if seikret_val == SeikretMoves.option_single:
-        for seikret in ["Seikret Jump Attacks", "Seikret Recovery", "Seikret Call"]:
+        for seikret in ["Seikret Jump Attacks", "Seikret Recovery", "Seikret Transport"]:
             items_to_remove += [seikret]
         if world.options.early_seikret_transport:
             multiworld.early_items[player]["Seikret Maneuvers"] = 1
