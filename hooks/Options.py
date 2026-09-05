@@ -202,7 +202,7 @@ def before_options_defined(options: dict[str, Type[Option[Any]]]) -> dict[str, T
     options["focus_toggle"] = FocusToggle
     options["focus_early"] = FocusEarly
     options["seikret_moves"] = SeikretMoves
-    options["early_seikret_call"] = EarlySeikretCall
+    options["early_seikret_transport"] = EarlySeikretCall
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
