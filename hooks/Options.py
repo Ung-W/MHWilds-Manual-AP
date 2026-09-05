@@ -170,7 +170,7 @@ class SeikretMoves(Choice):
             - Multiple : Seikret maneuvers are separated
                 - Seikret Transport : General transport across the map, you can still  teleport to camps on the maps freely
                 - Seikret Recovery : When hit and on the ground, you can call your Seikret to pick you up
-                - Seikret Jump Attacks : You can get on your secret to either jump off then attack or use jump attack
+                - Seikret Jump Attacks : You can get on your seikret to either jump off then attack or use jump attack
     """
     display_name = "Seikret Maneuvers"
     option_off = 0
