@@ -58,7 +58,7 @@
     {"name": "Water Fight !", "category": ["Traps"], "count": 0, "trap": true},
     {"name": "So Hungry...", "category": ["Traps"], "count": 0, "trap": true},
     {"name": "Won't raise an exception for this but check your enabled traps in yaml", "category": ["Traps"], "count": 0, "trap": true},
-    {"name": "Focus Mode", "category": ["Quest Unlock"], "progression": true},
+    {"name": "Focus Mode", "category": ["Hunter Abilities"], "progression": true},
     {"name": "Seikret Maneuvers", "category": ["Hunter Abilities"], "progression": true},
     {"name": "Seikret Jump Attacks", "category": ["Hunter Abilities"], "progression": true},
     {"name": "Seikret Recovery", "category": ["Hunter Abilities"], "progression": true},
