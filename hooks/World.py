@@ -307,7 +307,7 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
         for seikret in ["Seikret Maneuvers"]:
             items_to_remove += [seikret]
         if world.options.early_seikret_call:
-            multiworld.early_items[player]["Seikret Call"] = 1
+            multiworld.early_items[player]["Seikret Transport"] = 1
             
     mantle_val = world.options.mantle_toggle
     if not mantle_val:
