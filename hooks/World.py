@@ -60,7 +60,6 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     lrskip = get_option_value(multiworld, player, "lr_skip") or False
     small = get_option_value(multiworld, player, "small_monster_toggle") or False
     reward = get_option_value(multiworld, player, "reward_options")
-    print(f"Victory: {victory}, LR Skip: {lrskip}, Small Monster: {small}, Reward: {reward}")
 
     if victory == Victory.option_arkveld:
         locationNamesToRemove = [
@@ -174,11 +173,8 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             quest: world.random.randint(2, 6)
             for quest in questNames
         }
-        
-        print(f"Quest Rewards set : {questRewards}")
 
     for region in multiworld.regions:
-        print(f"Checking region {region.name} for player {region.player}")
         if region.player == player:
             if region.name in regions_to_remove:
                 for location in list(region.locations):
