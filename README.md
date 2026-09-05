@@ -9,6 +9,11 @@ Depending on your goal :
 ## Objective
 ### Complete your final Hunt
 ## Randomization
+### Checks
+- Quest Rewards : Each quest has a random amount of rewards (between 2 and 6)
+- Fixed : Every quests gives 4 rewards
+- Refights : You get 3 checks then have to find a X* Monster Report to refight monsters in this Star Difficulty
+> There is an option to skip Low Rank and only get High Rank checks, this will give you the necessary Armor and Weapon Rarity to get you starting
 ### Progression
 - Quest Rank Star : unlocks hunt of the corresponding Star Difficulty (7 Total)
 - Region Access : Allows hunts that take place in the corresponding region : 1 for LR, 2 for HR
@@ -23,12 +28,20 @@ Depending on your goal :
   - Normal : Can select which weapons are in the pool as well as add extra upgrades, also can select a main wepaon that will have 2 extra on top of the overall extras
   - Condensed : Same as Armor
 - Mantles
+- Focus Mode
+- Seikret Maneuvers
+  - Seikret Transport : General transport across the map, you can still  teleport to camps on the maps freely
+  - Seikret Recovery : When hit and on the ground, you can call your Seikret to pick you up
+  - Seikret Jump Attacks : You can get on your secret to either jump off then attack or use jump attack
 ### Traps
 Can define which of these are included in the pool
 - "Paratoad" : Stay still for 5 seconds
 - "Dung Pod" : Throw a dung pod at the monster (if available)
 - "Farcaster" : Teleport to Base Camp
 - "Take Cover !" : Equip one of your mantle immediately if available, if you already equipped one, ignore this.
+- "Groovy !" : Play the Fender Rathalos Telecaster Emote and finish one cycle of it
+- "Fireworks !" : Shoot a Firework (emote) in the sky
+- "Water Fight !" : Use the water gun emote and shoot 9 times (2 reload)
 - "So Thirsty..." : Drink a potion of your choice immediately if available
 - "So Hungry..." : Pull up the grill and make a meal or grill meat
 ## Locations
