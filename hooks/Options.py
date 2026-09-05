@@ -181,9 +181,9 @@ class SeikretMoves(Choice):
 class EarlySeikretCall(Toggle):
     """
         If Seikret Maneuvers (seikret_moves) set as "single", make Seikret Maneuvers early.
-        If Seikret Maneuvers (seikret_moves) set as "multiple", make Seikret Call early.
+        If Seikret Maneuvers (seikret_moves) set as "multiple", make Seikret Transport early.
     """
-    display_name = "Seikret Call Early ?"
+    display_name = "Seikret Transport Early ?"
     default = True
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
