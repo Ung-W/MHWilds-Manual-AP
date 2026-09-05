@@ -71,8 +71,6 @@ class weaponOption(OptionSet):
     """
         Toggle weapon types to be included in the pool.
         won't do anything if condense_weapons is enabled.
-        
-        This does not guarantee that you'll always have 8 upgrades of one weapon. (especially with low filler multiworlds)
             
         possible values are : "Greatsword", "Longsword", "Sword and Shield", "Dual Blades", "Hammer", "Hunting Horn", "Lance", "Gunlance", "Switch Axe", "Charge Blade", "Insect Glaive", "Light Bowgun", "Heavy Bowgun", "Bow"
     """
@@ -113,7 +111,7 @@ class ExtraWeapons(Range):
     
 class MantleToggle(Toggle):
     """
-        Toggle mantles to be included in the pool.
+        Are mantles included in the pool ?
     """
     display_name = "Mantles"
     default = True
@@ -124,14 +122,17 @@ class ActiveTraps(OptionSet):
         possible values are :
         - "Paratoad" : Stay still for 5 seconds
         - "Dung Pod" : Throw a dung pod at the monster (if available)
-        - "Farcaster" : Teleport to Base Camp
+        - "Farcaster" : Teleport to Base Camp (any means valid : Farcaster Item or via the map)
         - "Take Cover !" : Equip one of your mantle immediately if available, if you already equipped one, ignore this.
+        - "Groovy !" : Play the Fender Rathalos Telecaster Emote and finish one cycle of it
+        - "Fireworks !" : Shoot a Firework (emote) in the sky
+        - "Water Fight !" : Use the water gun emote and shoot 9 times (2 reload)
         - "So Thirsty..." : Drink a potion of your choice immediately if available
         - "So Hungry..." : Pull up the grill and make a meal or grill meat
     """
     display_name = "Traps"
-    valid_keys = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry..."]
-    default = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry..."]
+    valid_keys = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "Groovy !", "Fireworks !", "Water Fight !", "So Thirsty...", "So Hungry..."]
+    default = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "Groovy !", "Fireworks !", "Water Fight !", "So Thirsty...", "So Hungry..."]
     
 class RewardOptions(Choice):
     """
@@ -146,6 +147,41 @@ class RewardOptions(Choice):
     option_fixed = 1
     option_refights = 2
     default = 1
+    
+class FocusToggle(Toggle):
+    """
+        Is Focus Mode included as an item in the pool ?
+    """
+    display_name = "Focus Mode as Item"
+    default = False
+    
+class FocusEarly(Toggle):
+    """
+        If Focus Mode as Item (focus_toggle) is enabled, make Focus Mode early.
+    """
+    display_name = "Focus Mode Early ?"
+    default = True
+    
+class SeikretMoves(Choice):
+    """
+        Are Seikret Maneuvers included as items in the pool ?
+            - Off : Seikret Maneuvers are not included in the pool
+            - Single : Seikret maneuvers are condensed into a single "Seikret Maneuvers" item
+            - Multiple : Seikret maneuvers are separated
+    """
+    display_name = "Seikret Maneuvers"
+    option_off = 0
+    option_single = 1
+    option_multiple = 2
+    default = 0
+
+class EarlySeikretCall(Toggle):
+    """
+        If Seikret Maneuvers (seikret_moves) set as "single", make Seikret Maneuvers early.
+        If Seikret Maneuvers (seikret_moves) set as "multiple", make Seikret Call early.
+    """
+    display_name = "Seikret Call Early ?"
+    default = True
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict[str, Type[Option[Any]]]) -> dict[str, Type[Option[Any]]]:
@@ -160,6 +196,10 @@ def before_options_defined(options: dict[str, Type[Option[Any]]]) -> dict[str, T
     options["extra_weapons"] = ExtraWeapons
     options["active_traps"] = ActiveTraps
     options["reward_options"] = RewardOptions
+    options["focus_toggle"] = FocusToggle
+    options["focus_early"] = FocusEarly
+    options["seikret_moves"] = SeikretMoves
+    options["early_seikret_call"] = EarlySeikretCall
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
@@ -178,7 +218,8 @@ def after_options_defined(options: Type[PerGameCommonOptions]):
 def before_option_groups_created(groups: dict[str, list[Type[Option[Any]]]]) -> dict[str, list[Type[Option[Any]]]]:
     # Uses the format groups['GroupName'] = [TotalCharactersToWinWith]
     groups['Progression'] = [Victory, RewardOptions, LRSkip, SmallMonsterQuests]
-    groups['Arsenal'] = [CondenseArmors, CondenseWeapons, weaponOption, MainWeapon, ExtraWeapons, MantleToggle]
+    groups['Weaponry'] = [CondenseArmors, CondenseWeapons, weaponOption, MainWeapon, ExtraWeapons]
+    groups["Arsenal"] = [FocusToggle, FocusEarly, SeikretMoves, EarlySeikretCall, MantleToggle]
     groups['Misc'] = [ActiveTraps]
     return groups
 

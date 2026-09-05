@@ -6,7 +6,7 @@ from BaseClasses import MultiWorld, CollectionState, Item
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem
 from ..Locations import ManualLocation
-from .Options import Victory, RewardOptions
+from .Options import Victory, RewardOptions, SeikretMoves
 
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
@@ -183,6 +183,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             if region.name in regions_to_remove:
                 for location in list(region.locations):
                     region.locations.remove(location)
+                    continue
 
             for location in list(region.locations):
                 if any(location.name.startswith(prefix) for prefix in locationNamesToRemove):
@@ -285,6 +286,28 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
             for weapon in weapon_list:
                 for i in range(0, extra_weapons_val):
                     item_pool.append(world.create_item(f"Progressive {weapon}"))
+                    
+    focus_val = world.options.focus_toggle
+    if not focus_val:
+        items_to_remove += ["Focus Mode"]
+    elif focus_val:
+        if world.options.focus_early:
+            multiworld.early_items[player]["Focus Mode"] = 1
+        
+    seikret_val = get_option_value(multiworld, player, "seikret_moves")
+    if seikret_val == SeikretMoves.option_off:
+        for seikret in ["Seikret Maneuvers", "Seikret Jump Attacks", "Seikret Recovery", "Seikret Call"]:
+            items_to_remove += [seikret]
+    if seikret_val == SeikretMoves.option_single:
+        for seikret in ["Seikret Jump Attacks", "Seikret Recovery", "Seikret Call"]:
+            items_to_remove += [seikret]
+        if world.options.early_seikret_call:
+            multiworld.early_items[player]["Seikret Maneuvers"] = 1
+    if seikret_val == SeikretMoves.option_multiple:
+        for seikret in ["Seikret Maneuvers"]:
+            items_to_remove += [seikret]
+        if world.options.early_seikret_call:
+            multiworld.early_items[player]["Seikret Call"] = 1
             
     mantle_val = world.options.mantle_toggle
     if not mantle_val:
@@ -443,7 +466,7 @@ def after_create_items(item_pool: list, world: World, multiworld: MultiWorld, pl
     
     active_traps = list(world.options.active_traps)
     active_traps.sort()
-    full_trap_list = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry...", "Won't raise an exception for this but check your enabled traps in yaml"]
+    full_trap_list = ["Paratoad", "Dung Pod", "Farcaster", "Take Cover !", "So Thirsty...", "So Hungry...", "Groovy !", "Fireworks !", "Water Fight !", "Won't raise an exception for this but check your enabled traps in yaml"]
     active_traps_list = []
     
     if not active_traps:

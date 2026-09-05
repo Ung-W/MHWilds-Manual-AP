@@ -53,7 +53,15 @@
     {"name": "Farcaster", "category": ["Traps"], "count": 0, "trap": true},
     {"name": "Take Cover !", "category": ["Traps"], "count": 0, "trap": true},
     {"name": "So Thirsty...", "category": ["Traps"], "count": 0, "trap": true},
+    {"name": "Groovy !", "category": ["Traps"], "count": 0, "trap": true},
+    {"name": "Fireworks !", "category": ["Traps"], "count": 0, "trap": true},
+    {"name": "Water Fight !", "category": ["Traps"], "count": 0, "trap": true},
     {"name": "So Hungry...", "category": ["Traps"], "count": 0, "trap": true},
-    {"name": "Won't raise an exception for this but check your enabled traps in yaml", "category": ["Traps"], "count": 0, "trap": true}
+    {"name": "Won't raise an exception for this but check your enabled traps in yaml", "category": ["Traps"], "count": 0, "trap": true},
+    {"name": "Focus Mode", "category": ["Quest Unlock"], "progression": true},
+    {"name": "Seikret Maneuvers", "category": ["Hunter Abilities"], "progression": true},
+    {"name": "Seikret Jump Attacks", "category": ["Hunter Abilities"], "progression": true},
+    {"name": "Seikret Recovery", "category": ["Hunter Abilities"], "progression": true},
+    {"name": "Seikret Transport", "category": ["Hunter Abilities"], "progression": true}
   ]
 }
