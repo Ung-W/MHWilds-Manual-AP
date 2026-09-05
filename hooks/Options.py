@@ -137,8 +137,8 @@ class ActiveTraps(OptionSet):
 class RewardOptions(Choice):
     """
         Choose the way Quest checks are unlocked :
-            - Quest Reward : gives a random amount of reward per quests (between 2 and 6)
             - Fixed : Gives 4 reward per quests
+            - Quest Reward : gives a random amount of reward per quests (between 2 and 6)
             - Refights : Gives 2 checks per quests at start
                 find "X* Monster Report" to unlock 2 other checks from all quests in this Star rank
     """
