@@ -301,12 +301,12 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
     if seikret_val == SeikretMoves.option_single:
         for seikret in ["Seikret Jump Attacks", "Seikret Recovery", "Seikret Call"]:
             items_to_remove += [seikret]
-        if world.options.early_seikret_call:
+        if world.options.early_seikret_transport:
             multiworld.early_items[player]["Seikret Maneuvers"] = 1
     if seikret_val == SeikretMoves.option_multiple:
         for seikret in ["Seikret Maneuvers"]:
             items_to_remove += [seikret]
-        if world.options.early_seikret_call:
+        if world.options.early_seikret_transport:
             multiworld.early_items[player]["Seikret Transport"] = 1
             
     mantle_val = world.options.mantle_toggle
